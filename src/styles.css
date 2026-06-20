@@ -2,6 +2,14 @@
 @source "../src";
 @import "tw-animate-css";
 
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/space-grotesk/700.css";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -28,10 +36,10 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-cyan-glow: var(--cyan-glow);
-  --color-purple-glow: var(--purple-glow);
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
   --color-surface: var(--surface);
-  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-alt: var(--surface-alt);
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
 }
@@ -39,59 +47,64 @@
 :root {
   --radius: 0.625rem;
 
-  /* Zelvra brand */
-  --background: oklch(0.19 0.07 265);          /* #0D1B3E deep navy */
-  --surface: oklch(0.24 0.07 265);
-  --surface-elevated: oklch(0.28 0.06 265);
-  --foreground: oklch(0.97 0.01 250);
+  /* Light corporate theme */
+  --background: oklch(1 0 0);                    /* white */
+  --surface: oklch(0.985 0.005 230);             /* very light blue-tinted */
+  --surface-alt: oklch(0.97 0.01 230);
+  --foreground: oklch(0.18 0.04 265);            /* dark navy text */
 
-  --card: oklch(0.23 0.07 265);
-  --card-foreground: oklch(0.97 0.01 250);
-  --popover: oklch(0.23 0.07 265);
-  --popover-foreground: oklch(0.97 0.01 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.04 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.04 265);
 
-  --primary: oklch(0.78 0.14 195);              /* cyan #00C9C8 */
-  --primary-foreground: oklch(0.15 0.05 265);
-  --cyan-glow: oklch(0.82 0.15 195);
+  /* Navy (brand deep) — used for footer / hero bands */
+  --navy: oklch(0.22 0.07 265);                  /* #0D1B3E */
+  --navy-foreground: oklch(0.98 0.005 250);
 
-  --secondary: oklch(0.48 0.22 300);            /* purple #7B2FBE */
-  --secondary-foreground: oklch(0.97 0.01 250);
-  --purple-glow: oklch(0.58 0.24 300);
+  /* Primary = brand cyan */
+  --primary: oklch(0.62 0.13 210);               /* a more readable cyan-blue on white */
+  --primary-foreground: oklch(1 0 0);
 
-  --muted: oklch(0.28 0.05 265);
-  --muted-foreground: oklch(0.72 0.03 250);
-  --accent: oklch(0.78 0.14 195);
-  --accent-foreground: oklch(0.15 0.05 265);
+  /* Secondary = brand purple */
+  --secondary: oklch(0.5 0.2 300);
+  --secondary-foreground: oklch(1 0 0);
+
+  --muted: oklch(0.96 0.005 250);
+  --muted-foreground: oklch(0.48 0.02 260);
+  --accent: oklch(0.62 0.13 210);
+  --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.6 0.22 27);
-  --destructive-foreground: oklch(0.97 0.01 250);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.78 0.14 195);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.92 0.01 250);
+  --input: oklch(0.92 0.01 250);
+  --ring: oklch(0.62 0.13 210);
 
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
-  --gradient-brand: linear-gradient(135deg, oklch(0.48 0.22 300), oklch(0.78 0.14 195));
-  --gradient-hero: radial-gradient(ellipse at top, oklch(0.48 0.22 300 / 0.25), transparent 60%),
-                   radial-gradient(ellipse at bottom right, oklch(0.78 0.14 195 / 0.2), transparent 60%);
-  --shadow-glow-cyan: 0 0 40px -8px oklch(0.78 0.14 195 / 0.6);
-  --shadow-glow-purple: 0 0 40px -8px oklch(0.48 0.22 300 / 0.6);
-  --shadow-elegant: 0 20px 60px -20px oklch(0.1 0.05 265 / 0.5);
-}
+  --gradient-brand: linear-gradient(135deg, oklch(0.5 0.2 300), oklch(0.7 0.14 200));
+  --gradient-navy: linear-gradient(135deg, oklch(0.22 0.07 265) 0%, oklch(0.28 0.09 270) 100%);
+  --gradient-soft: linear-gradient(180deg, oklch(0.985 0.005 230) 0%, oklch(1 0 0) 100%);
 
-.dark { color-scheme: dark; }
+  --shadow-card: 0 1px 3px oklch(0.2 0.04 265 / 0.06), 0 8px 24px -12px oklch(0.2 0.04 265 / 0.08);
+  --shadow-elevated: 0 4px 16px -4px oklch(0.2 0.04 265 / 0.1), 0 20px 50px -20px oklch(0.2 0.04 265 / 0.15);
+}
 
 @layer base {
   * { border-color: var(--color-border); }
-  html { color-scheme: dark; }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    background-image: var(--gradient-hero);
-    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  h1, h2, h3, h4, h5 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    color: var(--color-navy);
+  }
 }
 
 @utility text-gradient-brand {
@@ -105,10 +118,14 @@
   background: var(--gradient-brand);
 }
 
-@utility glow-cyan {
-  box-shadow: var(--shadow-glow-cyan);
+@utility bg-gradient-navy {
+  background: var(--gradient-navy);
 }
 
-@utility glow-purple {
-  box-shadow: var(--shadow-glow-purple);
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@utility shadow-elevated {
+  box-shadow: var(--shadow-elevated);
 }
