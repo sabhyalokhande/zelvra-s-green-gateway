@@ -1,78 +1,110 @@
-import { Link } from "@tanstack/react-router";
+import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
-import logo from "@/assets/zelvra-logo.asset.json";
 
-const nav = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
+const nav: { to: string; label: string }[] = [
+  { to: "/about",            label: "About" },
+  { to: "/services",         label: "Services" },
   { to: "/circular-economy", label: "Circular Economy" },
-  { to: "/insights", label: "Insights" },
-  { to: "/contact", label: "Contact" },
-] as const;
+  { to: "/insights",         label: "Insights" },
+];
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
+    <header
+      className="sticky top-0 z-50 border-b border-white/[0.08] backdrop-blur-md"
+      style={{ background: "oklch(0.09 0.04 262 / 0.88)" }}
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <div className="flex h-11 w-11 items-center justify-center rounded-md bg-navy">
-            <img src={logo.url} alt="" className="h-10 w-10 object-contain" />
-          </div>
-          <div className="leading-tight">
-            <div className="font-display text-lg font-semibold tracking-[0.2em] text-navy">ZELVRA</div>
-            <div className="text-[10px] font-medium tracking-[0.35em] text-muted-foreground">GROUP</div>
-          </div>
+
+        {/* Logo */}
+        <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
+          <img
+            src="/zelvra-logo.png"
+            alt="Zelvra Group"
+            className="h-11 w-auto"
+          />
         </Link>
 
+        {/* Desktop nav */}
         <nav className="hidden items-center gap-1 lg:flex">
           {nav.map((n) => (
-            <Link
+            <NavLink
               key={n.to}
               to={n.to}
-              className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-navy"
-              activeProps={{ className: "rounded-md px-3 py-2 text-sm font-medium text-primary" }}
-              activeOptions={{ exact: n.to === "/" }}
+              className={({ isActive }) =>
+                [
+                  "rounded-md px-3.5 py-2 text-[0.875rem] font-semibold transition-colors duration-150",
+                  isActive ? "text-primary" : "text-white/55 hover:text-white",
+                ].join(" ")
+              }
             >
               {n.label}
-            </Link>
+            </NavLink>
           ))}
-          <Link
-            to="/contact"
-            className="ml-3 inline-flex items-center gap-2 rounded-md bg-navy px-4 py-2.5 text-sm font-medium text-navy-foreground transition-all hover:bg-primary"
-          >
-            Start a Conversation <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
         </nav>
 
-        <button className="rounded-md p-2 lg:hidden" onClick={() => setOpen((v) => !v)} aria-label="Toggle menu">
+        {/* CTA */}
+        <div className="hidden items-center lg:flex">
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 rounded-lg bg-gradient-brand px-5 py-2.5 text-[0.875rem] font-semibold text-white transition-all duration-150 hover:brightness-110"
+          >
+            Book a Call <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
+
+        {/* Mobile toggle */}
+        <button
+          className="rounded-md p-1.5 text-white/60 transition-colors duration-150 hover:bg-white/8 lg:hidden"
+          onClick={() => setOpen((v) => !v)}
+          aria-label="Toggle menu"
+        >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
+      {/* Mobile drawer */}
       {open && (
-        <div className="border-t border-border bg-background lg:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col px-6 py-3">
+        <div
+          className="border-t border-white/[0.08] lg:hidden"
+          style={{ background: "oklch(0.10 0.045 262 / 0.97)" }}
+        >
+          <nav className="mx-auto flex max-w-7xl flex-col px-6 py-4">
+            <NavLink
+              to="/"
+              end
+              onClick={() => setOpen(false)}
+              className={({ isActive }) =>
+                `rounded-md px-4 py-3 text-sm font-semibold transition-colors duration-150 ${
+                  isActive ? "text-primary bg-white/5" : "text-white/55 hover:text-white hover:bg-white/5"
+                }`
+              }
+            >
+              Home
+            </NavLink>
             {nav.map((n) => (
-              <Link
+              <NavLink
                 key={n.to}
                 to={n.to}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-sm font-medium text-muted-foreground hover:text-navy"
-                activeProps={{ className: "rounded-md px-3 py-3 text-sm font-medium text-primary" }}
-                activeOptions={{ exact: n.to === "/" }}
+                className={({ isActive }) =>
+                  `rounded-md px-4 py-3 text-sm font-semibold transition-colors duration-150 ${
+                    isActive ? "text-primary bg-white/5" : "text-white/55 hover:text-white hover:bg-white/5"
+                  }`
+                }
               >
                 {n.label}
-              </Link>
+              </NavLink>
             ))}
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-md bg-navy px-4 py-3 text-center text-sm font-medium text-navy-foreground"
+              className="mt-3 flex items-center justify-center gap-2 rounded-lg bg-gradient-brand px-5 py-3 text-sm font-semibold text-white"
             >
-              Start a Conversation
+              Book a Call <ArrowRight className="h-4 w-4" />
             </Link>
           </nav>
         </div>
