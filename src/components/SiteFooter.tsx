@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, MessageCircle } from "lucide-react";
 
 const explore = [
   { to: "/about",            label: "About Zelvra" },
@@ -37,11 +37,20 @@ export function SiteFooter() {
               <MapPin className="h-3.5 w-3.5 shrink-0 text-primary" /> Singapore
             </div>
             <a
-              href="mailto:hello@zelvra.com.sg"
+              href="mailto:talk.to.us@zelvra.com.sg"
               className="flex items-center gap-2.5 text-[0.875rem] text-white/50 transition-colors duration-150 hover:text-primary"
             >
               <Mail className="h-3.5 w-3.5 shrink-0 text-primary" />
-              hello@zelvra.com.sg
+              talk.to.us@zelvra.com.sg
+            </a>
+            <a
+              href="https://wa.me/6593238150"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2.5 text-[0.875rem] text-white/50 transition-colors duration-150 hover:text-primary"
+            >
+              <MessageCircle className="h-3.5 w-3.5 shrink-0 text-primary" />
+              +65 9323 8150 (WhatsApp)
             </a>
           </div>
         </div>
@@ -73,7 +82,7 @@ export function SiteFooter() {
             ))}
             <li>
               <a
-                href="https://wa.me/6500000000"
+                href="https://wa.me/6593238150"
                 target="_blank"
                 rel="noreferrer"
                 className="text-[0.875rem] text-white/55 transition-colors duration-150 hover:text-primary"

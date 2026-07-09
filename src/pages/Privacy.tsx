@@ -22,11 +22,11 @@ const sections = [
   },
   {
     title: "6. Your rights",
-    body: "You may request access to, correction of, or withdrawal of consent for the use of your personal data by contacting us at hello@zelvra.com.sg.",
+    body: "You may request access to, correction of, or withdrawal of consent for the use of your personal data by contacting us at talk.to.us@zelvra.com.sg.",
   },
   {
     title: "7. Contact",
-    body: "For privacy-related enquiries, please contact our Data Protection Officer at hello@zelvra.com.sg.",
+    body: "For privacy-related enquiries, please contact our Data Protection Officer at talk.to.us@zelvra.com.sg.",
   },
 ];
 

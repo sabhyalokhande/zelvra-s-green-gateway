@@ -11,6 +11,7 @@ import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
+import ChatWidget from "./components/ChatWidget";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -39,6 +40,7 @@ function Layout() {
         </Routes>
       </main>
       <SiteFooter />
+      <ChatWidget />
     </div>
   );
 }

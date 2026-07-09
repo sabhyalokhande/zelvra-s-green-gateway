@@ -279,7 +279,7 @@ export default function Home() {
               <p className="label-tag mb-3">Why Zelvra</p>
               <h2 className="text-3xl sm:text-4xl text-white">Senior delivery across IT, energy & ESG</h2>
               <p className="mt-5 text-[1.0625rem] leading-[1.75] text-white/50">
-                Founded by a senior professional with over 20 years of programme leadership across a global IT managed services firm, an international energy major in Singapore, and a regional resources company — spanning IT infrastructure, petrochemical operations, logistics, and HSSE governance.
+                Founded by a senior professional with over 20 years of programme leadership across a global IT managed services firm, an energy major in Singapore, and a regional resources company — spanning IT infrastructure, petrochemical operations, logistics, and HSSE governance.
               </p>
               <p className="mt-4 text-[1.0625rem] leading-[1.75] text-white/50">
                 An Executive MSc in Sustainability Management from NTU Singapore provides the academic foundation. Every engagement is owned and delivered at principal level — strategic counsel, not vendor pitch.

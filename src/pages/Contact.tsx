@@ -17,7 +17,7 @@ const serviceOptions = [
 ];
 
 const quickRoutes = [
-  { label: "General enquiry",            desc: "hello@zelvra.com.sg" },
+  { label: "General enquiry",            desc: "talk.to.us@zelvra.com.sg" },
   { label: "SGX / ESG reporting",        desc: "Fast-track scoping for climate disclosure deadlines" },
   { label: "IT asset programme review",  desc: "ITAM & circular economy advisory" },
 ];
@@ -147,7 +147,7 @@ export default function Contact() {
               {[
                 { icon: MapPin, title: "Location",      body: "Singapore (Incorporated in Singapore · UEN registered)" },
                 { icon: Clock,  title: "Response time", body: "Within one business day, Mon–Fri (SGT)." },
-                { icon: Mail,   title: "Email",         body: "hello@zelvra.com.sg" },
+                { icon: Mail,   title: "Email",         body: "talk.to.us@zelvra.com.sg" },
               ].map(({ icon: Icon, title, body }) => (
                 <div key={title} className="flex items-start gap-4 rounded-xl border border-white/[0.08] p-4" style={{ background: "oklch(0.12 0.048 262)" }}>
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg" style={{ background: "oklch(0.50 0.26 292 / 0.12)" }}>
@@ -161,7 +161,7 @@ export default function Contact() {
               ))}
 
               <a
-                href="https://wa.me/6500000000"
+                href="https://wa.me/6593238150"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-4 rounded-xl p-4 text-white transition-all duration-150 hover:brightness-110"

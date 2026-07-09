@@ -5,7 +5,7 @@ const stats = [
   { value: "20+", label: "Years Experience" },
   { value: "NTU",  label: "MSc Sustainability" },
   { value: "ASEAN", label: "Regional Posture" },
-  { value: "6",    label: "Industries" },
+  { value: "7",    label: "Industries" },
 ];
 
 const pillars = [
@@ -17,7 +17,7 @@ const pillars = [
   {
     icon: Compass,
     title: "Senior delivery experience",
-    body: "Programme leadership across global IT managed services, international energy operations, logistics digitisation and HSSE governance — at C-suite accountability level throughout.",
+    body: "Programme leadership across global IT managed services, energy operations, logistics digitisation and HSSE governance — at C-suite accountability level throughout.",
   },
   {
     icon: Globe2,
@@ -27,7 +27,7 @@ const pillars = [
   {
     icon: HeartHandshake,
     title: "Principled mandate",
-    body: "Strategic counsel, not vendor pitch. Every engagement is owned and delivered at principal level — no junior-heavy project teams, no handoffs after the proposal stage.",
+    body: "Strategic counsel, not vendor pitch. Every engagement is owned and delivered through senior-led project management — with principal accountability maintained from scoping through to final delivery.",
   },
 ];
 
@@ -36,6 +36,7 @@ const sectors = [
   "IT Infrastructure & Managed Services",
   "Petrochemicals & Energy",
   "Logistics & Warehousing",
+  "Healthcare",
   "HSSE Governance",
   "Data Centre Operations",
 ];
@@ -144,10 +145,10 @@ export default function About() {
             <div>
               <p className="label-tag mb-4">The founding story</p>
               <p className="text-[1.0625rem] leading-[1.75] text-white/60">
-                Zelvra Group is a Singapore-incorporated advisory founded by a senior professional with over 20 years of cross-industry experience. That career spans programme leadership at a global IT managed services firm, senior operations roles at an international energy major in Singapore, and commercial leadership at a regional resources company — accumulating deep expertise across IT infrastructure, petrochemical operations, logistics and HSSE governance.
+                Zelvra Group is a Singapore-incorporated advisory founded by a senior professional with over 20 years of cross-industry experience. That career spans programme leadership at a global IT managed services firm, senior operations roles at an energy major in Singapore, and commercial leadership at a regional resources company — accumulating deep expertise across IT infrastructure, petrochemical operations, logistics and HSSE governance.
               </p>
               <p className="mt-4 text-[1.0625rem] leading-[1.75] text-white/60">
-                An Executive MSc in Sustainability Management from Nanyang Technological University (NTU) grounds the practice in academic rigour and current regulatory methodology. The combination — senior delivery experience across hard industries and formal sustainability training — is the foundation that Zelvra is built on.
+                An Executive MSc in Sustainability Management from Nanyang Technological University (NTU) grounds the practice in academic rigour and current regulatory methodology. The combination — senior delivery experience across complex operational environments and formal sustainability training — is the foundation that Zelvra is built on.
               </p>
               <p className="mt-4 text-[1.0625rem] leading-[1.75] text-white/60">
                 The company name and its infinity loop mark deliberately reference the circular economy principle: continuous cycles of value creation, resource optimisation, and regenerative thinking. This is not a generic consultancy. It is a firm built on the belief that technology and sustainability are not competing priorities — they are the same solution, expressed differently.
@@ -157,7 +158,7 @@ export default function About() {
                   "NTU MSc Sustainability",
                   "20+ Years Senior Experience",
                   "Global IT Managed Services",
-                  "International Energy Sector",
+                  "Energy Sector",
                   "ISO 14064 Advisory",
                   "SGX Climate Disclosure",
                   "C-Suite Governance",
@@ -251,7 +252,7 @@ export default function About() {
               </p>
               <div className="flex flex-wrap gap-2">
                 {frameworks.map((f) => (
-                  <span key={f} className="rounded-full border border-primary/20 bg-primary/[0.06] px-3.5 py-1.5 text-[0.75rem] font-semibold text-primary/80">{f}</span>
+                  <span key={f} className="rounded-lg border border-white/[0.10] bg-white/[0.04] px-3.5 py-2 text-[0.8125rem] font-semibold text-white/60">{f}</span>
                 ))}
               </div>
             </div>
